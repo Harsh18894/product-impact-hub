@@ -18,12 +18,12 @@ const Hero = () => {
           className="max-w-3xl"
         >
           <span className="inline-block text-sm font-medium text-muted-foreground mb-6 tracking-wide uppercase">
-            Senior Product Manager
+            Senior Product Manager | Growth & Platforms
           </span>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] mb-6 text-balance">
             Building outcome-driven products that{" "}
-            <span className="text-accent">move the needle</span>
+            <span className="text-accent">deliver measurable impact</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl">

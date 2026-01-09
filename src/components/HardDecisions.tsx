@@ -4,20 +4,20 @@ import { AlertCircle } from "lucide-react";
 
 const decisions = [
   {
-    decision: "Killed a feature after early signals showed low impact",
-    context: "Saved 3 months of engineering time by acting on data, not sunk cost",
+    decision: "Killed a feature early when data showed low impact",
+    context: "Prevented ~3 months of engineering spend by prioritizing evidence over sunk cost",
   },
   {
     decision: "Chose speed over perfection and owned the trade-offs",
-    context: "Shipped MVP in 4 weeks, iterated based on real user feedback",
+    context: "Shipped MVP in 2 weeks and iterated based on real user feedback",
   },
   {
     decision: "Pushed back on roadmap decisions to protect core metrics",
-    context: "Said no to a high-visibility feature that would hurt retention",
+    context: "Said no to a high-visibility feature when data showed it would hurt retention",
   },
   {
-    decision: "Advocated for ops investment over new features",
-    context: "Reduced operational costs 40% before scaling acquisition",
+    decision: "Prioritized operational scale before shipping new features",
+    context: "Reduced operational costs ~40% before scaling acquisition",
   },
 ];
 
@@ -41,8 +41,7 @@ const HardDecisions = () => {
             Hard Product Decisions I've Made
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl">
-            Product management isn't about always saying yes. Here are some
-            difficult calls I've made and stood behind.
+            Product management isn't about always saying yes. It's about making hard calls and standing behind them.
           </p>
         </motion.div>
 
