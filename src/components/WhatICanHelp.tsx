@@ -6,27 +6,27 @@ const areas = [
   {
     icon: Rocket,
     title: "Scaling Marketplace Products",
-    description: "Growing two-sided platforms with balanced supply and demand",
+    description: "Scaling two-sided platforms by aligning supply, demand, and incentives to unlock sustainable growth",
   },
   {
     icon: TrendingUp,
     title: "Activation & Retention",
-    description: "Improving user onboarding and reducing churn through behavioral insights",
+    description: "Driving activation and retention by reducing friction and shaping user behavior at critical moments",
   },
   {
     icon: BarChart3,
     title: "Metrics-Driven Growth",
-    description: "Building data culture and defining metrics that actually matter",
+    description: "Defining and operationalizing metrics that guide decisions—not just dashboards",
   },
   {
     icon: Cog,
     title: "Product + Ops Systems",
-    description: "Designing scalable workflows for complex operational challenges",
+    description: "Designing product and operational systems that scale without breaking under complexity",
   },
   {
     icon: Lightbulb,
     title: "0→1 Products",
-    description: "Navigating ambiguity in early-stage product development",
+    description: "Taking 0→1 products from ambiguous ideas to shipped, validated solutions",
   },
 ];
 
@@ -49,6 +49,9 @@ const WhatICanHelp = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
             What I Can Help With
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl">
+            I focus on product problems where clarity is missing, stakes are high, and outcomes matter.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

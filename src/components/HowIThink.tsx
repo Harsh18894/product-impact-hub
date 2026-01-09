@@ -8,15 +8,15 @@ const HowIThink = () => {
 
   const philosophy = [
     "Outcomes over output",
-    "Users and business, not one vs the other",
+    "Users and business together",
     "Speed with accountability",
   ];
 
   const approach = [
-    "Clarify the real problem",
-    "Identify the metric that matters",
-    "Understand constraints",
-    "Ship the smallest meaningful solution",
+    "Define the real problem",
+    "Choose metrics that matter",
+    "Map constraints early",
+    "Ship MVPs fast",
     "Measure, iterate, or kill",
   ];
 
@@ -41,6 +41,9 @@ const HowIThink = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
             How I Think
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl">
+            A few principles that guide how I build products and make decisions.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">

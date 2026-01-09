@@ -10,14 +10,14 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "hello@example.com",
-      href: "mailto:hello@example.com",
+      value: "harshdeep18894@gmail.com",
+      href: "mailto:harshdeep18894@gmail.com",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Connect with me",
-      href: "https://linkedin.com",
+      href: "https://linkedin.com/in/harsh-d-singh/",
     },
     {
       icon: FileText,
@@ -53,25 +53,29 @@ const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          className="flex flex-col sm:flex-row gap-4"
         >
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="flex items-center gap-4 p-4 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors group"
+              className={`flex items-center gap-4 p-4 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors group
+      ${link.label === "Email"
+                  ? "w-full sm:w-full lg:w-fit lg:flex-none"
+                  : "w-full sm:flex-1 min-w-0"}
+    `}
             >
               <link.icon className="w-5 h-5 text-accent" />
-              <div>
-                <div className="text-sm text-primary-foreground/60">
-                  {link.label}
-                </div>
-                <div className="font-medium group-hover:text-accent transition-colors">
+
+              <div className="min-w-0 flex-1">
+                <div className="text-sm text-primary-foreground/60">{link.label}</div>
+                <div className="font-medium group-hover:text-accent transition-colors break-words">
                   {link.value}
                 </div>
               </div>
             </a>
           ))}
+
         </motion.div>
       </div>
     </section>
