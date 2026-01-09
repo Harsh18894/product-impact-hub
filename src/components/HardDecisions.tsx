@@ -4,8 +4,8 @@ import { AlertCircle } from "lucide-react";
 
 const decisions = [
   {
-    decision: "Killed a feature early when data showed low impact",
-    context: "Prevented ~3 months of engineering spend by prioritizing evidence over sunk cost",
+    decision: "Killed features early when data showed low impact",
+    context: "Prevented >3 months of engineering spend by prioritizing evidence over sunk cost",
   },
   {
     decision: "Chose speed over perfection and owned the trade-offs",
