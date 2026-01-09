@@ -22,14 +22,14 @@ const Contact = () => {
     {
       icon: FileText,
       label: "Resume",
-      value: "Download PDF",
-      href: "#",
+      value: "View PDF",
+      href: "https://drive.google.com/file/d/13S5s41SCXeeYISutStLCtY0zg9jtRmE-/view?usp=sharing",
     },
     {
       icon: Calendar,
       label: "Schedule",
       value: "Book a call",
-      href: "#",
+      href: "https://calendly.com/harsh1808/product-discussion",
     },
   ];
 
@@ -59,6 +59,7 @@ const Contact = () => {
             <a
               key={link.label}
               href={link.href}
+              target="_blank"
               className={`flex items-center gap-4 p-4 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors group
       ${link.label === "Email"
                   ? "w-full sm:w-full lg:w-fit lg:flex-none"

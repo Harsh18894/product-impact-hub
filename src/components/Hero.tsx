@@ -3,7 +3,7 @@ import { ArrowDown, FileText } from "lucide-react";
 
 const Hero = () => {
   const credibilityPoints = [
-    "7+ years in product & tech",
+    "8+ years in product & tech",
     "Owned end-to-end product metrics",
     "Built and scaled user-facing platforms",
   ];
@@ -60,11 +60,11 @@ const Hero = () => {
               <ArrowDown className="w-4 h-4" />
             </a>
             <a
-              href="#"
+              href="https://drive.google.com/file/d/13S5s41SCXeeYISutStLCtY0zg9jtRmE-/view?usp=sharing" target="_blank"
               className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-md font-medium text-foreground hover:bg-secondary transition-colors"
             >
               <FileText className="w-4 h-4" />
-              Download Resume
+              View Resume
             </a>
           </motion.div>
         </motion.div>
