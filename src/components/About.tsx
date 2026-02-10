@@ -51,6 +51,8 @@ const About = () => {
               <img
                 src="/website-image-new.webp"
                 alt="About me"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-[50%_20%]"
               />
             </div>
