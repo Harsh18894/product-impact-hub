@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 
 @layer base {
   :root {
@@ -74,7 +74,7 @@
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 35 92% 50%;
-    
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,7 +100,12 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply tracking-tight font-semibold;
   }
 }
@@ -109,15 +114,15 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .section-padding {
     @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
   }
-  
+
   .container-narrow {
     @apply max-w-5xl mx-auto;
   }
-  
+
   .container-wide {
     @apply max-w-7xl mx-auto;
   }
