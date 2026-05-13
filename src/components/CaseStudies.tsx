@@ -258,7 +258,7 @@ const CaseStudies = () => {
 
                 <div>
                   <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-3">
-                    What I Did
+                    My Approach
                   </h3>
                   <ul className="space-y-2">
                     {selectedStudy.whatIDid.map((item, i) => (
@@ -277,7 +277,7 @@ const CaseStudies = () => {
 
                 <div>
                   <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-3">
-                    Solution
+                    The Solution
                   </h3>
                   <p className="text-muted-foreground">
                     {selectedStudy.solution}
@@ -303,7 +303,7 @@ const CaseStudies = () => {
 
                 <div>
                   <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-3">
-                    Learnings
+                    What I'd do Differently
                   </h3>
                   <ul className="space-y-2">
                     {selectedStudy.learnings.map((item, i) => (
