@@ -4,7 +4,7 @@ import { useRef } from "react";
 const metrics = [
   { value: "32%", label: "Average improvement in core metrics" },
   { value: "500K+", label: "Users impacted across products" },
-  { value: "4", label: "Products launched end-to-end" },
+  { value: "5", label: "Products launched end-to-end" },
   { value: "10+", label: "Cross-functional teams led" },
 ];
 
