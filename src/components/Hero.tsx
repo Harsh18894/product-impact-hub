@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, FileText } from "lucide-react";
+import { ArrowDown, PhoneCall, PhoneIcon } from "lucide-react";
 
 const Hero = () => {
   const credibilityPoints = [
@@ -18,7 +18,7 @@ const Hero = () => {
           className="max-w-3xl"
         >
           <span className="inline-block text-sm font-medium text-muted-foreground mb-6 tracking-wide uppercase">
-            Senior Product Manager | Growth & Platforms
+            Product Leader | AI Products, Growth, Monetization & 0→1 Products
           </span>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] mb-6 text-balance">
@@ -60,11 +60,11 @@ const Hero = () => {
               <ArrowDown className="w-4 h-4" />
             </a>
             <a
-              href="https://drive.google.com/file/d/13S5s41SCXeeYISutStLCtY0zg9jtRmE-/view?usp=sharing" target="_blank"
+              href="https://calendly.com/harsh1808/product-discussion" target="_blank"
               className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-md font-medium text-foreground hover:bg-secondary transition-colors"
             >
-              <FileText className="w-4 h-4" />
-              View Resume
+              <PhoneIcon className="w-4 h-4" />
+              Discuss Strategy
             </a>
           </motion.div>
         </motion.div>

@@ -1,13 +1,35 @@
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { blogPosts } from "@/lib/blogs";
+import { fetchBlogPosts, isSanityBlogPost, type BlogListPost } from "@/lib/sanity";
 
 const ReadMyBlog = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [posts, setPosts] = useState<BlogListPost[]>(blogPosts);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchBlogPosts()
+      .then((sanityPosts) => {
+        if (isMounted && sanityPosts.length > 0) {
+          setPosts(sanityPosts);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setPosts(blogPosts);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <section ref={ref} id="blog" className="section-padding">
@@ -25,15 +47,13 @@ const ReadMyBlog = () => {
             Read my blog
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            A few placeholder essays on product thinking, trade-offs, growth,
-            and execution. You can replace the content later with your actual
-            posts.
+            Notes on product thinking, trade-offs, growth, and execution.
           </p>
         </motion.div>
 
         <div className="overflow-x-auto pb-4">
           <div className="flex min-w-max items-stretch gap-6">
-            {blogPosts.map((post, index) => (
+            {posts.map((post, index) => (
               <motion.div
                 key={post.slug}
                 initial={{ opacity: 0, y: 24 }}
@@ -47,9 +67,18 @@ const ReadMyBlog = () => {
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1"
                 >
                   <div className="overflow-hidden">
-                    <div
-                      className={`h-44 w-full origin-center transition-transform duration-500 group-hover:scale-110 ${post.thumbnailClassName}`}
-                    />
+                    {isSanityBlogPost(post) && post.imageUrl ? (
+                      <img
+                        src={post.imageUrl}
+                        alt=""
+                        className="h-44 w-full origin-center object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div
+                        className={`h-44 w-full origin-center transition-transform duration-500 group-hover:scale-110 ${post.thumbnailClassName}`}
+                      />
+                    )}
                   </div>
 
                   <div className="flex h-full flex-col space-y-4 p-5">

@@ -20,15 +20,9 @@ const Contact = () => {
       href: "https://linkedin.com/in/harsh-d-singh/",
     },
     {
-      icon: FileText,
-      label: "Resume",
-      value: "View PDF",
-      href: "https://drive.google.com/file/d/13S5s41SCXeeYISutStLCtY0zg9jtRmE-/view?usp=sharing",
-    },
-    {
       icon: Calendar,
       label: "Schedule",
-      value: "Book a call",
+      value: "Let's talk",
       href: "https://calendly.com/harsh1808/product-discussion",
     },
   ];

@@ -22,7 +22,7 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I'm a product manager who enjoys solving hard problems—where data
+                I'm a product manager who enjoys solving hard problems where data
                 is messy, constraints are real, and outcomes matter. I've worked
                 across teams and domains, from early-stage environments to scaled
                 platforms.
