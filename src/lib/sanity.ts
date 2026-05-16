@@ -7,12 +7,28 @@ export interface SanityPortableTextSpan {
   text?: string;
 }
 
+export interface SanityPortableTextMarkDef {
+  _key: string;
+  _type: string;
+  href?: string;
+  blank?: boolean;
+  [key: string]: unknown;
+}
+
 export interface SanityPortableTextBlock {
   _key: string;
-  _type: "block";
+  _type: string;
   style?: string;
-  listItem?: "bullet" | "number";
+  listItem?: "bullet" | "number" | string;
+  level?: number;
   children?: SanityPortableTextSpan[];
+  markDefs?: SanityPortableTextMarkDef[];
+  language?: string;
+  code?: string;
+  filename?: string;
+  url?: string;
+  alt?: string;
+  caption?: string;
 }
 
 export interface SanityBlogPost {
@@ -39,7 +55,14 @@ const postFields = `
   publishedAt,
   "category": coalesce(category, "Writing"),
   "imageUrl": image.asset->url,
-  body
+  body[]{
+    ...,
+    _type == "image" => {
+      ...,
+      "url": asset->url,
+      "alt": coalesce(alt, asset->altText, "")
+    }
+  }
 `;
 
 const postsQuery = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc) {${postFields}}`;

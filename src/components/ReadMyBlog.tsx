@@ -71,7 +71,7 @@ const ReadMyBlog = () => {
                       <img
                         src={post.imageUrl}
                         alt=""
-                        className="h-44 w-full origin-center object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="h-44 w-full origin-top object-cover object-top transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
                       />
                     ) : (
@@ -91,9 +91,7 @@ const ReadMyBlog = () => {
                       <h3 className="text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-accent">
                         {post.title}
                       </h3>
-                      <p className="mt-3 overflow-hidden text-sm leading-6 text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4]">
-                        {post.excerpt}
-                      </p>
+
                     </div>
 
                     <div className="flex items-center justify-end pt-2 text-sm font-medium text-foreground">
