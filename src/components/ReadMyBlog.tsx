@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { blogPosts } from "@/lib/blogs";
@@ -8,8 +8,34 @@ import { fetchBlogPosts, isSanityBlogPost, type BlogListPost } from "@/lib/sanit
 
 const ReadMyBlog = () => {
   const ref = useRef(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [posts, setPosts] = useState<BlogListPost[]>(blogPosts);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const updateScrollProgress = useCallback(() => {
+    const scrollContainer = scrollContainerRef.current;
+
+    if (!scrollContainer) {
+      return;
+    }
+
+    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+    setScrollProgress(maxScroll > 0 ? scrollContainer.scrollLeft / maxScroll : 0);
+  }, []);
+
+  const scrollBlogs = (direction: "left" | "right") => {
+    const scrollContainer = scrollContainerRef.current;
+
+    if (!scrollContainer) {
+      return;
+    }
+
+    scrollContainer.scrollBy({
+      left: direction === "right" ? 344 : -344,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -31,6 +57,15 @@ const ReadMyBlog = () => {
     };
   }, []);
 
+  useEffect(() => {
+    updateScrollProgress();
+    window.addEventListener("resize", updateScrollProgress);
+
+    return () => {
+      window.removeEventListener("resize", updateScrollProgress);
+    };
+  }, [posts.length, updateScrollProgress]);
+
   return (
     <section ref={ref} id="blog" className="section-padding">
       <div className="container-narrow">
@@ -51,7 +86,11 @@ const ReadMyBlog = () => {
           </p>
         </motion.div>
 
-        <div className="overflow-x-auto pb-4">
+        <div
+          ref={scrollContainerRef}
+          onScroll={updateScrollProgress}
+          className="overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           <div className="flex min-w-max items-stretch gap-6">
             {posts.map((post, index) => (
               <motion.div
@@ -106,6 +145,48 @@ const ReadMyBlog = () => {
             ))}
           </div>
         </div>
+
+        {posts.length > 3 && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.25 }}
+            className="mt-3 flex items-center justify-center gap-8"
+            aria-label="Blog scroll controls"
+          >
+            <button
+              type="button"
+              onClick={() => scrollBlogs("left")}
+              className="inline-flex h-10 w-10 items-center justify-center text-muted-foreground transition-colors hover:text-foreground disabled:cursor-default disabled:opacity-35"
+              disabled={scrollProgress <= 0.02}
+              aria-label="Scroll blogs left"
+            >
+              <ChevronLeft className="h-10 w-10 stroke-[1.75]" />
+            </button>
+
+            <span
+              className="relative h-2 w-44 overflow-hidden rounded-full bg-secondary"
+              aria-hidden="true"
+            >
+              <span
+                className="absolute left-0 top-0 h-full w-14 rounded-full bg-accent transition-transform duration-200"
+                style={{
+                  transform: `translateX(${scrollProgress * 7.5}rem)`,
+                }}
+              />
+            </span>
+
+            <button
+              type="button"
+              onClick={() => scrollBlogs("right")}
+              className="inline-flex h-10 w-10 items-center justify-center text-foreground transition-colors hover:text-accent disabled:cursor-default disabled:opacity-35"
+              disabled={scrollProgress >= 0.98}
+              aria-label="Scroll blogs right"
+            >
+              <ChevronRight className="h-10 w-10 stroke-[1.75]" />
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );

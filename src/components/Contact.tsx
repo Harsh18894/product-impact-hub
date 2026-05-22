@@ -22,7 +22,7 @@ const Contact = () => {
     {
       icon: Calendar,
       label: "Schedule",
-      value: "Let's talk",
+      value: "Book a call",
       href: "https://calendly.com/harsh1808/product-discussion",
     },
   ];

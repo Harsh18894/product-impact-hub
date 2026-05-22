@@ -22,21 +22,26 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I'm a product manager who enjoys solving hard problems where data
-                is messy, constraints are real, and outcomes matter. I've worked
-                across teams and domains, from early-stage environments to scaled
-                platforms.
+                I'm a product manager who's spent years in rooms where the data is messy,
+                the constraints are real, and someone has to make the call anyway.
+                I've worked across early-stage startups and scaled platforms - and the problems
+                that interest me most are the ones where there's no clean answer.
               </p>
               <p>
-                I believe great products come from clear thinking, not just good
-                ideas. That means asking better questions, making decisions with
-                incomplete information, and being honest about what's working
-                and what isn't.
+                I believe good product thinking is mostly about intellectual honesty:
+                asking the right questions, being willing to say no when the numbers don't support it,
+                and not confusing activity with progress. That's the same standard I bring
+                when I work with other teams.
               </p>
               <p>
-                When I'm not shipping products, I'm probably reading about
-                decision-making, exploring new cities, or trying to improve at
-                something I'm bad at (currently: cooking and pickleball).
+                If you're a founder or product leader dealing with a prioritisation problem,
+                a roadmap that's grown too political, or a team that's shipping without a
+                clear north star - that's exactly the kind of problem I enjoy untangling.
+              </p>
+              <p>
+                When I'm not in that mode, I'm probably reading about decision-making,
+                exploring new cities, or trying to get better at something I'm bad at
+                (currently: cooking and pickleball).
               </p>
             </div>
           </motion.div>
