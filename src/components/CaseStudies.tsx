@@ -20,101 +20,142 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     id: 1,
-    title: "Improving User Activation in a Large-Scale Platform",
-    category: "Growth & Activation",
+    title:
+      "Finding Product-Market Fit: From Job-Oriented Specializations to Placement Guarantee Courses",
+    category: "Product-Market Fit / 0-to-1 Product Discovery",
     preview:
-      "Redesigned the onboarding experience to increase activation rates by identifying friction points and implementing targeted interventions.",
-    metrics: ["32% → 58% activation", "40% faster time-to-value", "12 weeks"],
+      "Iterating a struggling high-ticket course into a placement-guaranteed product that found PMF and scaled past 1,000 payments a month.",
+    metrics: ["60 → 1,000+ payments/mo", "0.01% → 0.2% enrollment", "Sales team 2 → 50"],
     context:
-      "A B2B SaaS platform with 50k+ users was experiencing significant drop-off during the first 7 days. Only 32% of new signups became active users.",
+      "Internshala ran a portfolio of Short Term Trainings (STTs) generating ₹1-1.5 crore/month. To hit the company's ₹30 crore annual target, leadership needed a second, higher-ticket offering that paired training with a job outcome and rode the STT momentum. I owned discovery and iteration of that offering, from first launch to the version that finally scaled.",
     problem:
-      "Users were signing up but not reaching the 'aha moment' that would drive retention. The existing onboarding was generic and didn't address different user segments.",
+      "We needed a product that could grow revenue well beyond STTs, and we needed it fast, but we did not yet know what learners would pay a premium for. A prior bundled offering (Specializations) had already failed badly, so risk appetite was low even as pressure to ship stayed high.",
     whyHard:
-      "Multiple stakeholders had different opinions on what 'activation' meant. Limited engineering resources meant we couldn't rebuild from scratch. Data was fragmented across systems.",
+      "A/B/C testing was operationally heavy: different funnel touchpoints needed different engineering and data teams to instrument, creating internal resistance to moving fast. We were also carrying the cost of a prior failed bet, so every new iteration was scrutinised. And investor-driven time pressure pushed directly against the slower, research-first path that would have de-risked the product.",
     whatIDid: [
-      "Defined a clear activation metric tied to 30-day retention",
-      "Mapped the user journey and identified 3 key drop-off points",
-      "Ran user interviews to understand blockers",
-      "Prioritized interventions by impact/effort",
-      "Designed and shipped a segmented onboarding flow",
+      "Treated the offering as a sequence of experiments, reading data from each before reshaping the product",
+      "Launched Job-Oriented Specializations (JOS): bundled STTs + live classes (BigMarker) + placement assistance, fully product-led",
+      "Read the underperformance signals: enrollments were driven by placement, buyers were pre-final/final year undergrads, and the 12-month length deterred commitment",
+      "Reframed around the outcome with shorter 4-6 month Specializations with Placement Guarantee in Digital Marketing, Web Dev, Data Science, HRM (highest user and job density in our DB)",
+      "Diagnosed weak organic discovery and poor SEO, then repositioned the offering as Placement Guarantee Courses (PGC) to match how people actually searched",
     ],
     solution:
-      "Implemented a role-based onboarding experience with contextual guidance, reduced steps from 8 to 4, and added progress indicators.",
+      "The PGC framing was the version that clicked: within two months it pulled 300 payments/month, enrollment rose to 0.2%, and organic traffic moved from 1% to 5% and kept climbing. That scalability justified building a dedicated sales engine, which grew from 2 to 50 people and pushed the product past 1,000 payments/month.",
     impact: [
-      "Increased activation from 32% to 58%",
-      "Reduced time-to-first-value by 40%",
-      "Improved 30-day retention by 22%",
+      "Grew payments from 60-80/month (JOS) to over 1,000/month (PGC)",
+      "Improved enrollment rate from 0.01% to 0.09% to 0.2%",
+      "Grew organic traffic from 1% to 5% and rising, cutting dependence on internal redirection",
+      "Established PMF strong enough to justify scaling a sales team from 2 to 50 people",
     ],
     learnings: [
-      "Defining the metric upfront aligned the entire team",
-      "User interviews revealed blockers that data alone didn't show",
-      "Small, targeted changes outperformed the 'big redesign' approach",
+      "Front-load user research: roughly a year was lost reaching a good offering. Two months of interviews and market scoping up front likely would have landed a placement-specific product in the first iteration",
+      "Ship the obvious basics from day one: missing Google login, automatic resume use (~70% of users already had a resume on Internshala), and dummy discounts cost at least two months of avoidable experimentation",
+      "The buyers wanted the job outcome, not the training, and the data made that clear long before the framing caught up",
     ],
   },
   {
     id: 2,
-    title: "Driving Retention Through Behavioral Nudges",
-    category: "Retention & Engagement",
+    title: "The Growth Funnel Overhaul",
+    category: "Conversion Optimization / Funnel & Growth",
     preview:
-      "Built a notification system that increased weekly active users by 28% through personalized, behavior-triggered communications.",
-    metrics: ["28% WAU increase", "3x engagement rate", "8 weeks"],
+      "Rebuilding the Specialization funnel end to end, from signup page to pricing to sales handoff, to turn near-zero conversion into a paying funnel.",
+    metrics: ["Signup 2% → 15%", "Application 10% → 60%", "First call 1 day → 15 min"],
     context:
-      "A consumer app with strong acquisition was losing users after the first month. The notification system was generic and had low engagement.",
+      "As PM-II I took full ownership of Internshala's Specialization line. The offering had real traffic but a leaky funnel: visitors landed, but very few signed up, fewer applied, and almost none paid. My job was to find and fix the friction at every stage, from the landing experience through pricing to the sales handoff.",
     problem:
-      "Users were churning after initial excitement wore off. Push notification open rates were below 2%, and email engagement was declining.",
+      "Conversion was collapsing at each step. The signup page did not sell the outcome, the signup and application forms were long, the highest-intent traffic channels were not being prioritised, pricing was static, and once a user did sign up, sales took up to a day to reach them, by which point intent had cooled.",
     whyHard:
-      "Balance between engagement and user annoyance was delicate. No existing infrastructure for behavior-based triggers. Privacy concerns around tracking.",
+      "The hardest part was not the analysis, it was aligning the business and leadership team on promotional pricing. They believed discounts would do nothing because users already knew the offering, and worried that discounting would devalue it long term. Getting everyone in one room and showing that slash pricing is standard across marketplaces, and that the anchor (original) price stays intact, was what eventually unblocked it. They were skeptical at first, but slash pricing is now used at every touchpoint, arguably over-exploited.",
     whatIDid: [
-      "Analyzed user cohorts to identify retention patterns",
-      "Identified 5 key behaviors that predicted long-term retention",
-      "Designed a trigger-based notification system",
-      "A/B tested messaging, timing, and frequency",
-      "Built feedback loops for continuous optimization",
+      "Redesigned the signup page: moved testimonials and reviews up, added a 'highest salary offered' metric as social proof, and shortened the signup and application forms",
+      "Ran an RCA on unique-page-view channels to find which sources redirected best, then concentrated effort there",
+      "Added native ads and banners on key high-traffic pages to feed the funnel",
+      "Ran promotional pricing experiments: flat ₹30,000 (0.05% enrollment) → slash price ₹35,000 cut to ₹30,000 (0.1%) → ₹35,999 cut to ₹29,999 with a 'save ₹6,000' callout (0.2%)",
+      "Integrated LeadSquared with signups and applications so sales could act on leads almost immediately",
     ],
     solution:
-      "Launched a smart notification system with personalized triggers based on user behavior patterns, with easy opt-out controls.",
+      "A reworked funnel where the landing page sold the outcome, forms were short, the best channels were prioritised, and slash pricing anchored value while signalling a deal. LeadSquared closed the loop by routing fresh signups and applications straight to sales, collapsing the response window from a day to minutes.",
     impact: [
-      "Weekly active users increased by 28%",
-      "Push notification engagement 3x higher",
-      "Churn reduced by 15% in target cohort",
+      "Signup rate improved from 2% to 15%",
+      "Application rate improved from 10% to 60%",
+      "Payment rate improved from 0.05% to 2%",
+      "Promotional pricing alone lifted enrollment rate from 0.05% to 0.2% (4x)",
+      "Unique page views grew ~50%",
+      "Time-to-first-call dropped from 1 day to 15 minutes",
     ],
     learnings: [
-      "Timing matters more than content for notifications",
-      "Giving users control increased trust and engagement",
-      "Start small, measure, then scale what works",
+      "I would test multiple slash-pricing and message variants together (save 10%, 'offer valid till X date', deeper discounts) rather than sequentially, then scale the most effective version",
+      "Running pricing experiments in parallel would have reached the winning model faster instead of one increment at a time",
+      "Pricing perception is a cross-functional sell: the analysis was easy, getting leadership aligned was the real unlock",
     ],
   },
   {
     id: 3,
-    title: "Building a Metrics-Driven Workflow for Operations",
-    category: "Operations & Efficiency",
+    title: "Rebuilding the Learning Experience",
+    category: "Product Design / Engagement & Retention",
     preview:
-      "Created an internal tool that reduced manual operations work by 60% and improved data accuracy across the organization.",
-    metrics: ["60% time saved", "95% accuracy", "16 weeks"],
+      "Redesigning the Placement Guarantee Course experience so learners could navigate three parallel tracks from a single, clear view.",
+    metrics: ["First-module adoption 70% → 99%", "Completion 25% → 44%", "Graduation 18% → 30%"],
     context:
-      "Operations team was spending 20+ hours weekly on manual data entry and reconciliation. Errors were causing downstream issues.",
+      "As SPM I owned the Placement Guarantee Course (PGC) learning experience. The program had grown but the experience had not kept up: learners struggled to understand where they were and what to do next, which dragged on adoption, completion, and graduation. The revamp was my idea end to end, worked solo as the PM while collaborating closely with design and engineering on execution.",
     problem:
-      "Manual processes were unscalable and error-prone. Multiple spreadsheets with no single source of truth. Team was burning out.",
+      "PGC runs three tracks in parallel, each with its own rhythm. Learning (pre-recorded content, live sessions, assessments, projects, vivas), Placement (Internshala profile, ATS-friendly resume, video resume, aptitude training, placement sessions), and Live Sessions (part of both, but scheduled on the instructor's calendar rather than the learner's pace, across 15-20 different session types). Learners could not easily tell which track they were on, what was due, or which session was coming next, so sessions were wasted and progress stalled.",
     whyHard:
-      "Legacy systems couldn't be replaced quickly. Ops team was skeptical of 'yet another tool'. Needed to work alongside existing workflows.",
+      "The hard part was making three parallel, differently-paced tracks legible in one place. Self-paced learning had to coexist with fixed-schedule live sessions, learners had to hit checkpoints so sessions were not wasted, and critical signals (upcoming deadlines, requested resubmissions, scheduled viva timelines) all had to surface at the right moment. Fitting all of that into a single view that a learner could actually understand at a glance was the core design challenge.",
     whatIDid: [
-      "Shadowed ops team to understand pain points",
-      "Mapped all data flows and identified automation opportunities",
-      "Designed MVP focused on highest-impact workflow",
-      "Built iteratively with continuous ops team feedback",
-      "Created dashboards for visibility and accountability",
+      "Designed a new dashboard as the single home for all three tracks",
+      "Built a sequential learning journey so learners always knew the next step",
+      "Created a new placement hub bringing profile, resume, aptitude, and placement sessions together",
+      "Added marksheet and live-sessions pages so schedules and results were easy to find",
+      "Built single-view progress trackers surfacing checkpoints, deadlines, resubmission requests, and viva timelines in one place",
+      "Ran ideation and iteration with design and engineering while owning the product direction solo",
     ],
     solution:
-      "Shipped an internal tool that automated data sync, provided real-time dashboards, and integrated with existing systems.",
+      "A unified dashboard that made the three parallel tracks navigable from one screen: a sequential journey for self-paced learning, a dedicated placement hub, clear live-session scheduling across the 15-20 session types, and progress trackers that pushed the right deadline, resubmission, and viva signals to the surface so nothing fell through the cracks.",
     impact: [
-      "Reduced manual work by 60%",
-      "Improved data accuracy to 95%",
-      "Freed team to focus on strategic work",
+      "First-module adoption rose from 70% to 99%",
+      "Course completion rose from 25% to 44%",
+      "Graduation rate rose from 18% to 30%",
     ],
     learnings: [
-      "Building with users, not for them, drives adoption",
-      "Internal tools deserve the same product rigor as external",
-      "Quick wins build trust for bigger changes",
+      "If AI coding and design tools had existed earlier, the design cycle could have shrunk by ~70%. Each low-fidelity wireframe iteration took 3-4 days to build and rebuild, and AI tooling would have collapsed that dramatically",
+      "Design continuity matters: the design lead left and the replacement also left, which set us behind schedule. I covered as much as I could myself, but I would have insisted on a higher-motivation design partner for a project this central",
+    ],
+  },
+  {
+    id: 4,
+    title: "Value Funnel Overhaul and Competency Guardrails",
+    category: "Outcomes & Systems / Quality vs. Volume",
+    preview:
+      "Rebuilding the placement funnel from discovery to hire, then adding competency guardrails that deliberately shrank graduation to triple actual placements.",
+    metrics: ["Placements 5-6 → 15-20/mo", "Applications 2-5 → 20-25/mo", "Interview clear rate 2-3/10 → 8/10"],
+    context:
+      "As SPM I owned the PGC placement outcome end to end. The course had a learning experience and graduates, but the thing that actually mattered, learners getting placed, was weak. I rebuilt the placement funnel across every stage (discovery, shortlisting, employer quality, interview performance) and then added competency guardrails to make sure the people reaching employers were genuinely placeable.",
+    problem:
+      "Two problems compounded. The placement funnel leaked at every stage: too few relevant jobs surfaced, shortlisting was low, fake employers polluted the pool, and interview performance was poor. And the program had been optimised for graduation numbers, which pushed incompetent learners into the placement funnel. Employers pushed back that PGC user quality was poor, and shortlisting rates dropped. It became clear the true outcome was placement, not graduation: even if only 10 people graduated, they had to be placeable.",
+    whyHard:
+      "The hard part was reversing the organisation's instinct. We had spent a long time driving graduation numbers up, so deliberately adding guardrails that would cut graduation was counterintuitive internally. The employer backlash on quality was what made the case undeniable: a smaller, stronger funnel that actually converted to jobs beat a large funnel of unplaceable graduates. Holding that line, accepting a lower graduation rate on purpose, was the real tension.",
+    whatIDid: [
+      "Discovery: improved job tagging with ops (structured and automated), refined PGC categories, added instant relevant-job notifications, a dedicated auto-redirect page, and an ops mechanism to post outsourced jobs",
+      "Shortlisting: highlighted PGC users in the ATS, sent daily employer recommendation emails for a week, shared user performance sheets, and added AI hints and step-by-step guidance on problem statements",
+      "Employer quality: identified invalid-email employers and NGOs mass-inviting users, added breaking criteria to remove NGOs, and blacklisted fake employers with ops (100+ removed)",
+      "Interview performance: ran a market analysis, evaluated 50+ AI-interview solutions, and personally took 100+ interviews over 20 high-intensity days (12-14 hour days, 20-30 min each) before partnering with a startup at $0.9-1 per interview/user/month versus a $3-4 budget",
+      "Competency guardrails: added mid-term vivas, doSelect coding assessments for technical programs, and mandatory AI mock interviews for communication, so only learners with real placement potential could progress",
+    ],
+    solution:
+      "A placement funnel rebuilt stage by stage, fed only by learners who had cleared genuine competency checks. Better discovery surfaced more relevant jobs, ATS highlighting and employer emails lifted shortlisting, fake employers were purged, and an affordable AI-interview partner sharpened interview readiness. The guardrails (vivas, coding assessments, AI mock interviews) doubled as a motivation filter: only truly committed, capable learners advanced, while the rest dropped off.",
+    impact: [
+      "Monthly placements rose from 5-6 to 15-20",
+      "Average monthly applications rose from 2-5 to 20-25",
+      "Interview clear rate improved from 2-3 of 10 to 8 of 10",
+      "Shortlisting/assignment submission rate improved from 10% to 20%",
+      "Removed 100+ fake or invalid employers from the pool",
+      "AI-interview adoption reached 40% (160 of 400 monthly graduates)",
+      "Graduation rate intentionally fell from a peak of 32% to a capped ~26%, with completion rate unchanged",
+    ],
+    learnings: [
+      "I would have focused on outcomes from the start. Once activation was fixed and learners were actually learning, competency evaluation should have been the immediate next priority rather than chasing graduation",
+      "Projects and assignments should have been the original guardrails. AI interviews only came later with the AI boom, but rigorous evaluation of user competency should have been built in as soon as the learning experience existed",
     ],
   },
 ];

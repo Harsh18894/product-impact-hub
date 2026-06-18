@@ -10,7 +10,7 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "harshdeep18894@gmail.com",
+      value: "Send me an email",
       href: "mailto:harshdeep18894@gmail.com",
     },
     {
@@ -22,7 +22,7 @@ const Contact = () => {
     {
       icon: Calendar,
       label: "Schedule",
-      value: "Book a call",
+      value: "Book a call with me",
       href: "https://calendly.com/harsh1808/product-discussion",
     },
   ];
@@ -54,11 +54,7 @@ const Contact = () => {
               key={link.label}
               href={link.href}
               target="_blank"
-              className={`flex items-center gap-4 p-4 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors group
-      ${link.label === "Email"
-                  ? "w-full sm:w-full lg:w-fit lg:flex-none"
-                  : "w-full sm:flex-1 min-w-0"}
-    `}
+              className="flex items-center gap-4 p-4 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors group w-full sm:flex-1 min-w-0"
             >
               <link.icon className="w-5 h-5 text-accent" />
 
