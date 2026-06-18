@@ -40,6 +40,7 @@ export interface SanityBlogPost {
   publishedAt: string;
   imageUrl?: string;
   thumbnailClassName: string;
+  excerpt: string;
   body: SanityPortableTextBlock[];
 }
 
@@ -86,15 +87,15 @@ export const getPlainTextFromBody = (body: SanityPortableTextBlock[] = []) =>
     .replace(/\s+/g, " ")
     .trim();
 
-// const getExcerpt = (body: SanityPortableTextBlock[] = []) => {
-//   const text = getPlainTextFromBody(body);
+const getExcerpt = (body: SanityPortableTextBlock[] = []) => {
+  const text = getPlainTextFromBody(body);
 
-//   if (!text) {
-//     return "Read the latest notes on product strategy, execution, and impact.";
-//   }
+  if (!text) {
+    return "Read the latest notes on product strategy, execution, and impact.";
+  }
 
-//   return text.length > 160 ? `${text.slice(0, 157).trim()}...` : text;
-// };
+  return text.length > 160 ? `${text.slice(0, 157).trim()}...` : text;
+};
 
 const getReadTime = (body: SanityPortableTextBlock[] = []) => {
   const wordCount = getPlainTextFromBody(body).split(/\s+/).filter(Boolean).length;
@@ -119,6 +120,7 @@ const normalizePost = (post: SanityBlogPost, index = 0): SanityBlogPost => ({
   readTime: getReadTime(post.body),
   publishedAt: formatDate(post.publishedAt),
   thumbnailClassName: getThumbnailClassName(index),
+  excerpt: getExcerpt(post.body),
   body: post.body ?? [],
 });
 
