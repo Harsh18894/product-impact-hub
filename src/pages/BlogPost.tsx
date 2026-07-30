@@ -14,6 +14,7 @@ import {
   type BlogDetailPost,
   type SanityPortableTextBlock,
 } from "@/lib/sanity";
+import SEO from "@/components/SEO";
 
 type BlogPostLocationState = {
   fromBlogSection?: boolean;
@@ -290,7 +291,7 @@ const BlogPost = () => {
       return;
     }
 
-    navigate("/#blog");
+    navigate("/writing");
   };
 
   if (status === "loading") {
@@ -321,14 +322,31 @@ const BlogPost = () => {
     return <Navigate to="/404" replace />;
   }
 
+  const ogImage = isSanityBlogPost(post) && post.imageUrl ? post.imageUrl : "/og/home.png";
+
   return (
     <main className="min-h-screen bg-background">
+      <SEO
+        title={`${post.title} | Harsh Deep Singh`}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        image={ogImage}
+        type="article"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.publishedAt,
+          author: { "@type": "Person", name: "Harsh Deep Singh" },
+        }}
+      />
       <section className="section-padding">
         <div className="container-narrow">
           <button
             type="button"
             onClick={handleBackClick}
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
           >
             <ArrowLeft className="h-4 w-4" />
             Back

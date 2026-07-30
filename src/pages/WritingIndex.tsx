@@ -1,15 +1,14 @@
-import { motion, useInView } from "framer-motion";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import WritingThumbnail from "@/components/illustrations/WritingThumbnail";
 import { blogPosts } from "@/lib/blogs";
 import { fetchBlogPosts, isSanityBlogPost, type BlogListPost } from "@/lib/sanity";
 
-const ReadMyBlog = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+const WritingIndex = () => {
   const [posts, setPosts] = useState<BlogListPost[]>(blogPosts);
 
   useEffect(() => {
@@ -32,39 +31,41 @@ const ReadMyBlog = () => {
     };
   }, []);
 
-  const recentPosts = posts.slice(0, 3);
-
   return (
-    <section ref={ref} id="writing" className="section-padding">
-      <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-10"
-        >
-          <span className="text-sm font-medium text-indigo-text tracking-wide uppercase">
-            Writing
-          </span>
-          <h2 className="mt-3 text-3xl font-bold text-foreground md:text-4xl">
-            Writing
-          </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Notes on product thinking, trade-offs, growth, and execution.
-          </p>
-        </motion.div>
+    <main className="min-h-screen bg-background">
+      <SEO
+        title="Writing | Harsh Deep Singh"
+        description="Notes on product thinking, trade-offs, growth, and execution."
+        path="/writing"
+        image="/og/home.png"
+      />
+      <section className="section-padding">
+        <div className="container-narrow">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to home
+          </Link>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {recentPosts.map((post, index) => (
-            <motion.div
-              key={post.slug}
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.08 * index }}
-            >
+          <div className="mt-8 mb-12">
+            <span className="text-sm font-medium text-indigo-text tracking-wide uppercase">
+              Writing
+            </span>
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
+              All posts
+            </h1>
+            <p className="text-muted-foreground mt-4 max-w-2xl">
+              Notes on product thinking, trade-offs, growth, and execution.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {posts.map((post) => (
               <Link
+                key={post.slug}
                 to={`/blog/${post.slug}`}
-                state={{ fromBlogSection: true }}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <div className="overflow-hidden">
@@ -92,9 +93,9 @@ const ReadMyBlog = () => {
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold leading-snug text-foreground">
+                    <h2 className="text-lg font-semibold leading-snug text-foreground">
                       {post.title}
-                    </h3>
+                    </h2>
                   </div>
 
                   <div className="flex items-center justify-between pt-2 text-sm">
@@ -106,27 +107,14 @@ const ReadMyBlog = () => {
                   </div>
                 </div>
               </Link>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
+      </section>
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.25 }}
-          className="mt-8"
-        >
-          <Link
-            to="/writing"
-            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:underline underline-offset-4"
-          >
-            View all posts
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
-      </div>
-    </section>
+      <Footer />
+    </main>
   );
 };
 
-export default ReadMyBlog;
+export default WritingIndex;

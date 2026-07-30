@@ -1,119 +1,70 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+
+import PhilosophyIllustration, {
+  type PhilosophyIllustrationVariant,
+} from "@/components/illustrations/PhilosophyIllustration";
+
+const principles: { title: string; body: string; illustration: PhilosophyIllustrationVariant }[] = [
+  {
+    title: "Reframe before you optimise.",
+    body: "JOS wasn't underperforming because the funnel was broken — it was the wrong product. The data said buyers wanted the job outcome, not the training, well before the framing caught up. Reframing it as Placement Guarantee Courses is what took monthly sales from ₹30–40 lakh to ₹1–2 crore.",
+    illustration: "reframe",
+  },
+  {
+    title: "Front-load the research you think you don't have time for.",
+    body: "Investor time pressure pushed against a research-first path, and roughly a year was lost getting to the right offering. Two months of interviews up front would have landed a placement-specific product in the first iteration.",
+    illustration: "research",
+  },
+  {
+    title: "Filter the wrong users in, or the product dies.",
+    body: "I pushed for intent filtering at PGC admission and was overruled. An audience that enrolled for the guarantee alone — expecting outcomes without effort — degraded quality until the product was shut down. I'd rather cut graduates from 400–500 to 200–250 on purpose, which I later did with competency guardrails, than grow a number that's quietly killing the brand.",
+    illustration: "filter",
+  },
+];
 
 const HowIThink = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const philosophy = [
-    "Outcomes over output",
-    "Users and business together",
-    "Speed with accountability",
-  ];
-
-  const approach = [
-    "Define the real problem",
-    "Choose metrics that matter",
-    "Map constraints early",
-    "Ship MVPs fast",
-    "Measure, iterate, or kill",
-  ];
-
-  const knownFor = [
-    "Navigating ambiguity",
-    "Aligning cross-functional teams",
-    "Making data-backed decisions",
-  ];
-
   return (
-    <section ref={ref} className="section-padding bg-secondary/50">
+    <section ref={ref} className="section-padding">
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10"
         >
-          <span className="text-sm font-medium text-accent tracking-wide uppercase">
+          <span className="text-sm font-medium text-indigo-text tracking-wide uppercase">
             Product Philosophy
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
             How I Think
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl">
-            A few principles that guide how I build products and make decisions.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-4"
-          >
-            <h3 className="text-lg font-semibold text-foreground">
-              Product Philosophy
-            </h3>
-            <ul className="space-y-3">
-              {philosophy.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-muted-foreground"
-                >
-                  <span className="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4"
-          >
-            <h3 className="text-lg font-semibold text-foreground">
-              How I Approach Problems
-            </h3>
-            <ol className="space-y-3">
-              {approach.map((item, index) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-muted-foreground"
-                >
-                  <span className="text-xs font-medium text-accent mt-0.5 shrink-0 w-4">
-                    {index + 1}.
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ol>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-4"
-          >
-            <h3 className="text-lg font-semibold text-foreground">
-              What I'm Known For
-            </h3>
-            <ul className="space-y-3">
-              {knownFor.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-muted-foreground"
-                >
-                  <span className="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+        <div className="space-y-10">
+          {principles.map((principle, index) => (
+            <motion.div
+              key={principle.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
+              className="grid md:grid-cols-[1fr_auto] gap-6 items-center max-w-4xl"
+            >
+              <div className="max-w-[68ch]">
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  &ldquo;{principle.title}&rdquo;
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">{principle.body}</p>
+              </div>
+              <PhilosophyIllustration
+                variant={principle.illustration}
+                className="hidden md:block w-56 h-auto shrink-0"
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

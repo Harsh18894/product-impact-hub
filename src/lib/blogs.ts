@@ -1,3 +1,5 @@
+import { computeReadingTime } from "./readingTime";
+
 export interface BlogSection {
   heading: string;
   paragraphs: string[];
@@ -14,12 +16,11 @@ export interface BlogPost {
   content: BlogSection[];
 }
 
-export const blogPosts: BlogPost[] = [
+const rawBlogPosts: Omit<BlogPost, "readTime">[] = [
   {
     slug: "finding-signal-in-noisy-product-metrics",
     title: "Finding Signal in Noisy Product Metrics",
     category: "Product Analytics",
-    readTime: "6 min read",
     publishedAt: "May 2026",
     excerpt:
       "A placeholder article about separating vanity trends from the metrics that actually change product decisions.",
@@ -46,7 +47,6 @@ export const blogPosts: BlogPost[] = [
     slug: "building-roadmaps-with-real-tradeoffs",
     title: "Building Roadmaps With Real Trade-offs",
     category: "Strategy",
-    readTime: "5 min read",
     publishedAt: "May 2026",
     excerpt:
       "A placeholder article about making roadmap choices explicit instead of pretending every priority can be delivered at once.",
@@ -73,7 +73,6 @@ export const blogPosts: BlogPost[] = [
     slug: "when-user-feedback-conflicts-with-data",
     title: "When User Feedback Conflicts With Data",
     category: "Research",
-    readTime: "7 min read",
     publishedAt: "May 2026",
     excerpt:
       "A placeholder article about what to do when interviews tell one story and product analytics appear to say another.",
@@ -100,7 +99,6 @@ export const blogPosts: BlogPost[] = [
     slug: "designing-mvps-that-teams-can-actually-ship",
     title: "Designing MVPs That Teams Can Actually Ship",
     category: "Execution",
-    readTime: "6 min read",
     publishedAt: "May 2026",
     excerpt:
       "A placeholder article about cutting scope in a way that preserves learning, not just delivery speed.",
@@ -127,7 +125,6 @@ export const blogPosts: BlogPost[] = [
     slug: "retention-work-before-growth-spend",
     title: "Retention Work Before Growth Spend",
     category: "Growth",
-    readTime: "4 min read",
     publishedAt: "May 2026",
     excerpt:
       "A placeholder article about why weak retention can make acquisition look better than the product experience really is.",
@@ -154,7 +151,6 @@ export const blogPosts: BlogPost[] = [
     slug: "making-decisions-with-incomplete-information",
     title: "Making Decisions With Incomplete Information",
     category: "Leadership",
-    readTime: "8 min read",
     publishedAt: "May 2026",
     excerpt:
       "A placeholder article about deciding responsibly even when the team lacks perfect clarity, perfect data, or perfect timing.",
@@ -178,5 +174,15 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ];
+
+const getPostWordCount = (post: Omit<BlogPost, "readTime">) =>
+  post.content
+    .flatMap((section) => section.paragraphs)
+    .join(" ");
+
+export const blogPosts: BlogPost[] = rawBlogPosts.map((post) => ({
+  ...post,
+  readTime: computeReadingTime(getPostWordCount(post)),
+}));
 
 export const blogPostBySlug = new Map(blogPosts.map((post) => [post.slug, post]));
