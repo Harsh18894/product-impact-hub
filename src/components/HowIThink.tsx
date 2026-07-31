@@ -7,8 +7,8 @@ import PhilosophyIllustration, {
 
 const principles: { title: string; body: string; illustration: PhilosophyIllustrationVariant }[] = [
   {
-    title: "Reframe before you optimise.",
-    body: "JOS wasn't underperforming because the funnel was broken — it was the wrong product. The data said buyers wanted the job outcome, not the training, well before the framing caught up. Reframing it as Placement Guarantee Courses is what took monthly sales from ₹30–40 lakh to ₹1–2 crore.",
+    title: "Reframe before you optimize.",
+    body: "JOS wasn't underperforming because the funnel was broken - it was the wrong product. The data said buyers wanted the job outcome, not the training, well before the framing caught up. Reframing it as Placement Guarantee Courses is what took monthly sales from ₹30-40 lakh to ₹1-2 crore.",
     illustration: "reframe",
   },
   {
@@ -18,7 +18,7 @@ const principles: { title: string; body: string; illustration: PhilosophyIllustr
   },
   {
     title: "Filter the wrong users in, or the product dies.",
-    body: "I pushed for intent filtering at PGC admission and was overruled. An audience that enrolled for the guarantee alone — expecting outcomes without effort — degraded quality until the product was shut down. I'd rather cut graduates from 400–500 to 200–250 on purpose, which I later did with competency guardrails, than grow a number that's quietly killing the brand.",
+    body: "I pushed for intent filtering at PGC admission and was overruled. An audience that enrolled for the guarantee alone - expecting outcomes without effort -  degraded quality until the product was shut down. I'd rather cut graduates from 400-500 to 200-250 on purpose, which I later did with competency guardrails, than grow a number that's quietly killing the brand.",
     illustration: "filter",
   },
 ];

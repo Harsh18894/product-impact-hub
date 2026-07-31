@@ -35,8 +35,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <a
             href="/"
-            className="text-lg font-semibold text-foreground tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            className="flex items-center gap-2 text-lg font-semibold text-foreground tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
           >
+            <img src="/logo.svg" alt="" className="w-8 h-8" width={32} height={32} />
             Harsh Deep Singh
           </a>
 

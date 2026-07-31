@@ -203,7 +203,7 @@ const CaseStudyIllustration = ({ variant, colors, className }: CaseStudyIllustra
   return (
     <svg
       viewBox="0 0 200 220"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMidYMid meet"
       className={className}
       fill="none"
       aria-hidden="true"

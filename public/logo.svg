@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Minimal growth mark logo</title>
+  <desc id="desc">A clean abstract logo with deep navy pillars, a teal upward growth arrow, and circular accent marks.</desc>
+  <defs>
+    <linearGradient id="navy" x1="286" y1="250" x2="656" y2="762" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#102F63"/>
+      <stop offset="1" stop-color="#071D45"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="244" y1="696" x2="717" y2="304" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#78C9C4"/>
+      <stop offset=".46" stop-color="#15948D"/>
+      <stop offset="1" stop-color="#06716D"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="730" y1="227" x2="794" y2="291" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF6754"/>
+      <stop offset="1" stop-color="#F34B3D"/>
+    </linearGradient>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="8" stdDeviation="11" flood-color="#0F172A" flood-opacity=".12"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#softShadow)">
+    <path fill="url(#navy)" d="M309 546V318c0-38 31-69 69-69s69 31 69 69v158L309 546Z"/>
+    <path fill="url(#navy)" d="M309 662 447 548v158c0 38-31 69-69 69s-69-31-69-69v-44Z"/>
+    <path fill="url(#navy)" d="M583 487c15-13 30-21 52-15 26 7 44 30 44 57v176c0 39-31 70-70 70s-70-31-70-70V523l44-36Z"/>
+    <rect x="423" y="568" width="97" height="23" rx="8" fill="url(#navy)"/>
+
+    <path fill="url(#teal)" d="M234 725c5-86 58-144 132-199 41-31 87-59 132-88 68-44 116-90 155-143h-88c-20 0-36-16-36-36s16-36 36-36h103c20 0 36 16 36 36v102c0 20-16 36-36 36s-36-16-36-36v-35c-42 58-96 106-169 151-44 27-88 53-127 84-51 40-87 81-102 164Z"/>
+
+    <circle cx="775" cy="232" r="33" fill="url(#coral)"/>
+    <circle cx="707" cy="274" r="13" fill="#087C79"/>
+    <circle cx="670" cy="303" r="12" fill="url(#navy)"/>
+    <circle cx="744" cy="365" r="36" fill="none" stroke="#087C79" stroke-width="10"/>
+  </g>
+</svg>

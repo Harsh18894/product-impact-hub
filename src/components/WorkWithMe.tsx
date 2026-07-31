@@ -50,21 +50,32 @@ const WorkWithMe = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {areas.map((area, index) => (
             <motion.div
               key={area.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
-              className="p-6 bg-card border border-border rounded-lg hover:border-indigo/50 transition-all duration-300 group"
+              className="h-full min-h-[330px] p-6 bg-card border border-border rounded-lg hover:border-indigo/50 transition-all duration-300 group"
             >
-              <ServiceIllustration
-                variant={area.illustration}
-                className="w-full max-w-[160px] h-auto mb-4 group-hover:scale-105 transition-transform"
-              />
-              <h3 className="text-lg font-semibold text-foreground mb-2">{area.title}</h3>
-              <p className="text-sm text-muted-foreground">{area.description}</p>
+              <div className="flex h-full flex-col items-center text-center">
+                <div className="flex h-[120px] w-full items-center justify-center mb-5">
+                  <ServiceIllustration
+                    variant={area.illustration}
+                    className="h-[96px] w-auto max-w-[180px] group-hover:scale-105 transition-transform"
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col items-center justify-start">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    {area.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground max-w-[30ch]">
+                    {area.description}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

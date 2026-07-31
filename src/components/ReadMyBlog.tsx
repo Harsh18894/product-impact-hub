@@ -65,14 +65,14 @@ const ReadMyBlog = () => {
               <Link
                 to={`/blog/${post.slug}`}
                 state={{ fromBlogSection: true }}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="group flex h-full min-h-[430px] flex-col rounded-lg border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                <div className="overflow-hidden">
+                <div className="mb-5 flex h-[150px] w-full items-center justify-center overflow-hidden rounded-md bg-muted/30">
                   {isSanityBlogPost(post) && post.imageUrl ? (
                     <img
                       src={post.imageUrl}
                       alt=""
-                      className="h-44 w-full origin-top object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                      className="h-full w-full object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03]"
                       loading="lazy"
                     />
                   ) : (
@@ -80,24 +80,22 @@ const ReadMyBlog = () => {
                       category={post.category}
                       slug={post.slug}
                       title={post.title}
-                      className="flex h-44 w-full origin-center items-center justify-center transition-transform duration-500 group-hover:scale-110"
+                      className="flex h-full w-full items-center justify-center p-3 transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   )}
                 </div>
 
-                <div className="flex h-full flex-col space-y-4 p-5">
-                  <div className="flex items-center justify-between gap-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                <div className="flex flex-1 flex-col">
+                  <div className="mb-4 flex items-center justify-between gap-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">
                     <span>{post.category}</span>
                     <span>{post.readTime}</span>
                   </div>
 
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold leading-snug text-foreground">
-                      {post.title}
-                    </h3>
-                  </div>
+                  <h3 className="text-lg font-semibold leading-snug text-foreground">
+                    {post.title}
+                  </h3>
 
-                  <div className="flex items-center justify-between pt-2 text-sm">
+                  <div className="mt-auto flex items-center justify-between pt-8 text-sm">
                     <span className="text-muted-foreground">{post.publishedAt}</span>
                     <span className="inline-flex items-center gap-1 font-medium text-indigo-text">
                       Read article
